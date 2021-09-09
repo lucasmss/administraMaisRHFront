@@ -16,7 +16,9 @@ export class ClientesService {
   }
 
 
-
+  listarClientes(): any {
+    return this.http.get<Clientes[]>('http://localhost:8080/api/clientes');
+  }
 
 
 }

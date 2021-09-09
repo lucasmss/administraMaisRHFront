@@ -1,0 +1,35 @@
+<h1 class="mt-4">Clientes</h1>
+<ol class="breadcrumb mb-4">
+  <li class="breadcrumb-item active">Cadastrados</li>
+</ol>
+<div class="container">
+  <div class="row">
+    <div class="col-md-2">
+      <button type="submit" (click)="cadastrar()" class="btn btn-info"><i class="fa fa-plus"></i> Novo</button>
+    </div>
+  </div>
+  <br/>
+
+  <div class="row">
+    <div class="col-md-12">
+      <table class="table table-lg table-hover">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">NOME</th>
+            <th scope="col">CPF</th>
+            <th scope="col">DATA DO CADASTRO</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let cliente of clientes">
+            <th scope="row">{{ cliente.id }}</th>
+            <td>{{ cliente.name }}</td>
+            <td>{{ cliente.cpf }}</td>
+            <td>{{ cliente.dataCadastro }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
