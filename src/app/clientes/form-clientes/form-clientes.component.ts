@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Clientes } from 'src/app/shared/models/clientes/clientes';
 import { ClientesService } from 'src/app/shared/services/clientes.service';
 
@@ -13,7 +14,9 @@ export class FormClientesComponent implements OnInit {
   success: boolean = false;
   errors: String[];
 
-  constructor(private service: ClientesService) {
+  constructor(
+    private service: ClientesService,
+    private router: Router) {
      this.cliente = new Clientes();
    }
 
@@ -30,6 +33,10 @@ export class FormClientesComponent implements OnInit {
       this.success= false;
       this.errors = errorResponse.error.erros;  
     } );
+  }
+
+  voltar(){
+    this.router.navigate(['/cadastrados']);
   }
 
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, RouterLink } from '@angular/router';
 import { Clientes } from 'src/app/shared/models/clientes/clientes';
 import { ClientesService } from 'src/app/shared/services/clientes.service';
 
@@ -12,8 +13,8 @@ export class ListarClientesComponent implements OnInit {
   clientes: Clientes[] = [];
 
   constructor(
-    private service: ClientesService
-    ) { }
+    private service: ClientesService,
+    private router: Router ) {}
 
   ngOnInit(): void {
     this.clientesCadastrados();
@@ -27,7 +28,7 @@ export class ListarClientesComponent implements OnInit {
   }
 
   cadastrar(){
-    
+    this.router.navigate(['/cadastrar']);
   }
 
 }

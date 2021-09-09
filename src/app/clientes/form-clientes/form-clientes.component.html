@@ -1,38 +1,45 @@
 <h1 class="mt-4">Cliente</h1>
 <ol class="breadcrumb mb-4">
-    <li class="breadcrumb-item active">Cadastro</li>
+  <li class="breadcrumb-item active">Cadastro</li>
 </ol>
 
 <form #clientForm="ngForm" (ngSubmit)="salvar()">
-        <div class="row">  
-          <div class="form-group col-md-12">
-            <div class="alert alert-success" role="alert" *ngIf="success == true">
-                  Cadastro ou Atualização realizada com sucesso!
-            </div>
-            <div class="alert alert-danger" role="alert" *ngFor="let error of errors">
-                  {{error}}
-            </div>
-          </div>
-        </div>  
-        <div class="row" *ngIf="cliente.id">
-            <div class="form-group col-md-6">
-                <label for="exampleInputEmail1">ID:</label>
-                <input type="number" class="form-control" [(ngModel)]="cliente.id" placeholder="ID"  name="id" disabled>
-            </div>
-            <div class="form-group col-md-6">
-                <label for="exampleInputEmail1">Data Cadastro:</label>
-                <input type="text" class="form-control" [(ngModel)]="cliente.dataCadastro" placeholder="Data Cadastro"  name="dataCadastro" disabled>
-            </div>
-          </div>  
-          <div class="row">  
-            <div class="form-group col-md-6">
-                <label for="exampleInputEmail1">Nome *</label>
-                <input type="text" class="form-control" [(ngModel)]="cliente.name" name="name" placeholder="Nome">
-            </div>
-            <div class="form-group col-md-6">
-                <label for="exampleInputEmail1">CPF *</label>
-                <input type="text" class="form-control" [(ngModel)]="cliente.cpf" name="cpf" placeholder="CPF">
-            </div>
-        </div>
-    <button type="submit" (click)="salvar()" class="btn btn-success">Salvar</button>
+  <div class="row">
+    <div class="form-group col-md-12">
+      <div class="alert alert-success" role="alert" *ngIf="success == true">
+        Cadastro ou Atualização realizada com sucesso!
+      </div>
+      <div class="alert alert-danger" role="alert" *ngFor="let error of errors">
+        {{error}}
+      </div>
+    </div>
+  </div>
+  <div class="row" *ngIf="cliente.id">
+    <div class="form-group col-md-6">
+      <label for="exampleInputEmail1">ID:</label>
+      <input type="number" class="form-control" [(ngModel)]="cliente.id" placeholder="ID" name="id" disabled>
+    </div>
+    <div class="form-group col-md-6">
+      <label for="exampleInputEmail1">Data Cadastro:</label>
+      <input type="text" class="form-control" [(ngModel)]="cliente.dataCadastro" placeholder="Data Cadastro"
+        name="dataCadastro" disabled>
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-group col-md-6">
+      <label for="exampleInputEmail1">Nome *</label>
+      <input type="text" class="form-control" [(ngModel)]="cliente.name" name="name" placeholder="Nome">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="exampleInputEmail1">CPF *</label>
+      <input type="text" class="form-control" [(ngModel)]="cliente.cpf" name="cpf" placeholder="CPF">
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-3">
+      <button type="submit" (click)="salvar()" class="btn btn-success">Salvar</button>
+      <button type="button" (click)="voltar()" class="btn btn-danger ml-1">Voltar</button>
+    </div>
+  </div>
 </form>
