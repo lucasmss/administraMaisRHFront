@@ -19,6 +19,7 @@
             <th scope="col">NOME</th>
             <th scope="col">CPF</th>
             <th scope="col">DATA DO CADASTRO</th>
+            <th scope="col">AÇÕES</th>
           </tr>
         </thead>
         <tbody>
@@ -27,6 +28,15 @@
             <td>{{ cliente.name }}</td>
             <td>{{ cliente.cpf }}</td>
             <td>{{ cliente.dataCadastro }}</td>
+            <td>
+              <button class="btn btn-primary mr-2"
+                routerLink="/cadastrar/{{ cliente.id }}">
+                <i class="fa fa-edit"></i>
+              </button>
+              <button class="btn btn-danger">
+                <i class="fa fa-trash"></i>
+              </button>
+            </td>
           </tr>
         </tbody>
       </table>

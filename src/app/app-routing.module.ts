@@ -8,6 +8,7 @@ import { HomeComponent } from './home/home.component';
 const routes: Routes = [
     {path : 'home', component: HomeComponent},
     {path : 'cadastrar', component: FormClientesComponent},
+    {path : 'cadastrar/:id', component: FormClientesComponent},
     {path : 'cadastrados', component: ListarClientesComponent}
 ];
 

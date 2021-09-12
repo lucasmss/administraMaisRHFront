@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, RouterLink } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { Clientes } from 'src/app/shared/models/clientes/clientes';
 import { ClientesService } from 'src/app/shared/services/clientes.service';
 
@@ -14,14 +14,16 @@ export class ListarClientesComponent implements OnInit {
 
   constructor(
     private service: ClientesService,
-    private router: Router ) {}
+    private router: Router,
+    private activatedRouter: ActivatedRoute 
+    ) {}
 
   ngOnInit(): void {
     this.clientesCadastrados();
   }
 
   clientesCadastrados(){
-    this.service.listarClientes()
+    this.service.getListarClientes()
         .subscribe(response => {
           return this.clientes = response;
         })
