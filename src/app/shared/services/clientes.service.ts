@@ -27,6 +27,10 @@ export class ClientesService {
     return this.http.get<any>(`http://localhost:8080/api/clientes/${id}`);
   }
 
+  deletarCliente(cliente: Clientes): any {
+    return this.http.delete<any>(`http://localhost:8080/api/clientes/${cliente.id}`);
+  }
+
 
 }
 

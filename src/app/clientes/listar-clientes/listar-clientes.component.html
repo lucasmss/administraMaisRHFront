@@ -11,6 +11,17 @@
   <br/>
 
   <div class="row">
+    <div class="form-group col-md-12">
+      <div class="alert alert-success" role="alert" *ngIf="success">
+        {{success}}
+      </div>
+      <div class="alert alert-danger" role="alert" *ngIf="errors">
+        {{errors}}
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
     <div class="col-md-12">
       <table class="table table-lg table-hover">
         <thead>
@@ -33,13 +44,34 @@
                 routerLink="/cadastrar/{{ cliente.id }}">
                 <i class="fa fa-edit"></i>
               </button>
-              <button class="btn btn-danger">
+              <button class="btn btn-danger" data-toggle="modal" data-target="#modal-delecao" (click)="selecionarCliente(cliente)">
                 <i class="fa fa-trash"></i>
               </button>
             </td>
           </tr>
         </tbody>
       </table>
+    </div>
+  </div>
+
+  <div id="modal-delecao" class="modal fade" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Confirmar Exclusão</h5>
+          <button type="button" class="close" data-dismiss="modal-delecao" aria-label="Close">
+            
+          </button>
+        </div>
+        <div class="modal-body" *ngIf="clienteSelecionado">
+          <p> Excluir o Cliente {{ clienteSelecionado.name }}?</p>
+          <p class="alerta-modal"> Opção não pode ser Desfeita!! </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-success" (click)="deletarCliente()" data-dismiss="modal">Confirmar</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+        </div>
+      </div>
     </div>
   </div>
 </div>

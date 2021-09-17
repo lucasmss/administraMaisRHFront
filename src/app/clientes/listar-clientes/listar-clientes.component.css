@@ -4,3 +4,8 @@ table {
   table-layout: fixed;
   text-align: center;
 }
+
+.alerta-modal {
+  color: red;
+  font-size: 12px;
+}
