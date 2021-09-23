@@ -3,6 +3,7 @@ import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { Clientes } from 'src/app/shared/models/clientes/clientes';
 import { ClientesService } from 'src/app/shared/services/clientes.service';
 
+
 @Component({
   selector: 'app-listar-clientes',
   templateUrl: './listar-clientes.component.html',

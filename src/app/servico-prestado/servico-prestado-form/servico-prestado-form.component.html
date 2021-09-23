@@ -3,7 +3,7 @@
   <li class="breadcrumb-item active">Novo</li>
 </ol>
 
-<form #clientForm="ngForm" (ngSubmit)="salvarServico()">
+<form #servicoForm="ngForm" (ngSubmit)="salvarServico()">
     <div class="row">
 <!--       <div class="form-group col-md-12">
         <div class="alert alert-success" role="alert" *ngIf="success == true">
@@ -15,19 +15,42 @@
       </div> -->
     </div>
     <div class="row">
-      <div class="form-group col-md-6">
+      <div class="form-group col-md-12">
         <label>Cliente </label>
-        <select class="form-control">
-            <option value="">Selecionar</option>
-            <option *ngFor="let cliente of clientes"> {{ cliente.name }}</option>
+        <select class="form-control"
+        [ngModelOptions]="{standalone: true}"
+        [(ngModel)]="servicos.idCliente">
+            <option value="">Selecionar: </option>
+            <option *ngFor="let cliente of clientes" [ngValue]="cliente.id"> {{ cliente.name }}</option>
         </select>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="form-group col-md-12">
+        <label>Descrição: </label>
+        <input type="text" class="form-control" [(ngModel)]="servicos.descricao" placeholder="Descricao"
+          name="descricao">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="form-group col-md-6">
+        <label>Preço: </label>
+        <input type="text" class="form-control" [(ngModel)]="servicos.preco" placeholder="Preço"
+          name="preco">
+      </div>
+      <div class="form-group col-md-6">
+        <label>Data: </label>
+        <input type="date" class="form-control" [(ngModel)]="servicos.data" placeholder="Data"
+          name="data">
       </div>
     </div>
   
     <div class="row">
       <div class="col-md-3">
         <button type="submit" class="btn btn-success">Salvar</button>
-<!--         <button type="submit" (click)="salvar()" *ngIf="cliente.id" class="btn btn-primary">Atualizar</button> -->
+<!--         <button type="submit" *ngIf="cliente.id" class="btn btn-primary">Atualizar</button> -->
         <button type="button" class="btn btn-danger ml-1">Voltar</button>
       </div>
     </div>

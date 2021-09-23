@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Clientes } from 'src/app/shared/models/clientes/clientes';
+import { Servicos } from 'src/app/shared/models/servicos/servicos';
 import { ClientesService } from 'src/app/shared/services/clientes.service';
+import { ServicosService } from 'src/app/shared/services/servicos.service';
+
 
 @Component({
   selector: 'app-servico-prestado-form',
@@ -10,9 +13,15 @@ import { ClientesService } from 'src/app/shared/services/clientes.service';
 export class ServicoPrestadoFormComponent implements OnInit {
 
   clientes: Clientes[] = [];
+  servicos: Servicos;
   success: boolean = false;
 
-  constructor(private clientesService: ClientesService) { }
+  constructor(
+    private clientesService: ClientesService,
+    private servicoService: ServicosService
+    ) { 
+    this.servicos = new Servicos();
+  }
 
   ngOnInit(): void {
     this.clientesService.getListarClientes()
@@ -22,7 +31,15 @@ export class ServicoPrestadoFormComponent implements OnInit {
   }
 
   salvarServico(){
-
+    console.log(this.servicos);
+    this.servicos.data = "10/02/2021"
+    this.servicoService.postSalvarServico(this.servicos)
+        .subscribe(
+          response => {
+            console.log(response);
+          }
+          
+        )
   }
 
 }
