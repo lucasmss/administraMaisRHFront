@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Clientes } from 'src/app/shared/models/clientes/clientes';
 import { Servicos } from 'src/app/shared/models/servicos/servicos';
 import { ServicosBuscar } from 'src/app/shared/models/servicos/servicos-buscar';
@@ -22,7 +23,8 @@ export class ServicoPrestadoListarComponent implements OnInit {
 
   constructor(
     private clientesService: ClientesService, 
-    private servicoService: ServicosService
+    private servicoService: ServicosService,
+    private router: Router
   ) { 
     this.meses = [1,2,3,4,5,6,7,8,9,10,11,12];
     this.servicos = new Servicos();
@@ -34,6 +36,9 @@ export class ServicoPrestadoListarComponent implements OnInit {
           this.clientes = response;
         })
     
+  }
+  cadastrar(){
+    this.router.navigate(['/servico-prestado-form']);
   }
 
   buscarServicos(){
