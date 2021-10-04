@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ListarClientesComponent } from './clientes/listar-clientes/listar-clientes.component';
 import { ServicoPrestadoFormComponent } from './servico-prestado/servico-prestado-form/servico-prestado-form.component';
 import { ServicoPrestadoListarComponent } from './servico-prestado/servico-prestado-listar/servico-prestado-listar.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { ServicoPrestadoListarComponent } from './servico-prestado/servico-prest
     ListarClientesComponent,
     ServicoPrestadoFormComponent,
     ServicoPrestadoListarComponent,
+    LoginComponent,
     
   ],
   imports: [
