@@ -16,9 +16,9 @@ export class LoginComponent {
   constructor() { }
 
   entrar(){
-    
-  }
 
+  }
+  
   cadastrar(event){
     event.preventDefault();
     this.cadastrando = true;

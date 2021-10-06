@@ -13,6 +13,7 @@ import { ListarClientesComponent } from './clientes/listar-clientes/listar-clien
 import { ServicoPrestadoFormComponent } from './servico-prestado/servico-prestado-form/servico-prestado-form.component';
 import { ServicoPrestadoListarComponent } from './servico-prestado/servico-prestado-listar/servico-prestado-listar.component';
 import { LoginComponent } from './login/login.component';
+import { LayoutComponent } from './layout/layout.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { LoginComponent } from './login/login.component';
     ServicoPrestadoFormComponent,
     ServicoPrestadoListarComponent,
     LoginComponent,
+    LayoutComponent,
     
   ],
   imports: [
