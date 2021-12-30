@@ -14,6 +14,7 @@ import { ServicoPrestadoFormComponent } from './servico-prestado/servico-prestad
 import { ServicoPrestadoListarComponent } from './servico-prestado/servico-prestado-listar/servico-prestado-listar.component';
 import { LoginComponent } from './login/login.component';
 import { LayoutComponent } from './layout/layout.component';
+import { AuthService } from './shared/services/auth.service';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,7 @@ import { LayoutComponent } from './layout/layout.component';
     FormsModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
