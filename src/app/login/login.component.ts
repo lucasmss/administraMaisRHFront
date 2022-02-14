@@ -10,9 +10,9 @@ import { AuthService } from '../shared/services/auth.service';
 })
 export class LoginComponent {
 
-  usuario: string;
+  username: string;
   password: string;
-  loginErro: boolean;
+  errors: String[];
   mensagemSucesso: string;
   cadastrando: boolean;
   
@@ -35,17 +35,17 @@ export class LoginComponent {
   }
 
   cadastrarUsuario(){
-    const usuario: Usuario = new Usuario();
-    usuario.usuario = this.usuario;
-    usuario.password = this.password;
+    const username: Usuario = new Usuario();
+    username.username = this.username;
+    username.password = this.password;
     this.authService
-        .salvar(usuario)
+        .salvar(username)
         .subscribe( response => {
           this.mensagemSucesso = "Cadastro realizado com sucesso!";
-          this.loginErro = null;
-        }, error => {
+          this.errors = null;
+        }, errorResponse => {
           this.mensagemSucesso = null;
-          this.loginErro = true;
+          this.errors = errorResponse.error.erros;  
         })
   }
 
