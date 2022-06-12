@@ -9,9 +9,9 @@ import { Usuario } from '../models/usuario/usuario';
 })
 export class AuthService {
 
-  apiURL: string = environment.apiURLBase + "/api/usuarios"
+  apiURL: string = environment.apiURLBase + "api/usuarios"
   tokenURL: string = environment.apiURLBase + environment.obterTokenUrl
-  clienteID: string = environment.clienteId
+  clienteId: string = environment.clienteId
   clienteSecret: string = environment.clienteSecret
 
   constructor(
@@ -29,10 +29,10 @@ export class AuthService {
                         .set('grant_type', 'password')
 
     const headers = {
-      'Authorization':  'Basic ' + btoa(`${this.clienteID}:${this.clienteSecret}`),
+      'Authorization':  'Basic ' + btoa(`${this.clienteId}:${this.clienteSecret}`),
       'Content-Type': 'application/x-www-form-urlencoded'
     }
-    return this.http.post(this.tokenURL, params.toString(), {headers});
+    return this.http.post<any>(this.tokenURL, params, { headers });
   }
 
 }
