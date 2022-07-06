@@ -1,7 +1,8 @@
 import { Component} from '@angular/core';
 import { Router } from '@angular/router';
-import { Usuario } from '../shared/models/usuario/usuario';
 import { AuthService } from '../shared/services/auth.service';
+import { Usuario } from '../shared/models/usuario/usuario';
+
 
 @Component({
   selector: 'app-login',
@@ -25,6 +26,8 @@ export class LoginComponent {
     this.authService
         .tentarLogar(this.username, this.password)
         .subscribe(response => {
+          const access_token = JSON.stringify(response);
+          localStorage.setItem('access_token', access_token);
           console.log(response);
           this.router.navigate(['/home']); 
         }, errorResponse => {
