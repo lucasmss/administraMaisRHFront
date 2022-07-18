@@ -9,13 +9,18 @@ import { environment } from 'src/environments/environment';
 })
 export class ClientesService {
 
-  apiURL: string = environment.apiURLBase + 'api/clientes';
+  apiURL: string = environment.apiURLBase + '/api/clientes';
 
   constructor(private http: HttpClient ) { }
 
 
   postSalvarCliente(cliente: Clientes) : Observable<Clientes> {
-    return this.http.post<Clientes>(`${this.apiURL}`, cliente);
+    const tokenString = localStorage.getItem('access_token');
+    const token = JSON.parse(tokenString);
+    const headers = {
+      'Authorization' : 'Bearer ' + token.access_token
+    }
+    return this.http.post<Clientes>(`${this.apiURL}`, cliente, {headers});
   }
 
   postAtualizarCliente(cliente: Clientes) : Observable<any> {
@@ -23,7 +28,12 @@ export class ClientesService {
   }
 
   getListarClientes(): Observable<Clientes[]> {
-    return this.http.get<Clientes[]>(this.apiURL);
+    const tokenString = localStorage.getItem('access_token');
+    const token = JSON.parse(tokenString);
+    const headers = {
+      'Authorization' : 'Bearer ' + token.access_token
+    }
+    return this.http.get<Clientes[]>(this.apiURL, { headers });
   }
 
   getListarCliente(id: number): any {

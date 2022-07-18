@@ -10,7 +10,7 @@ import { ServicosBuscar } from '../models/servicos/servicos-buscar';
 })
 export class ServicosService {
 
-  apiURL: string = environment.apiURLBase + 'api/servico-prestado';
+  apiURL: string = environment.apiURLBase + '/api/servico-prestado';
 
   constructor(private http: HttpClient ) { }
 

@@ -9,7 +9,7 @@ import { Usuario } from '../models/usuario/usuario';
 })
 export class AuthService {
 
-  apiURL: string = environment.apiURLBase + "api/usuarios"
+  apiURL: string = environment.apiURLBase + "/api/usuarios"
   tokenURL: string = environment.apiURLBase + environment.obterTokenUrl
   clienteId: string = environment.clienteId
   clienteSecret: string = environment.clienteSecret
