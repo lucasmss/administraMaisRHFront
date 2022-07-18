@@ -17,7 +17,7 @@ import { LayoutComponent } from './layout/layout.component';
 import { AuthService } from './shared/services/auth.service';
 import { ClientesService } from 'shared/services/clientes.service';
 import { ServicosService } from 'shared/services/servicos.service';
-import { Token } from '@angular/compiler';
+import { TokenInterceptor } from './token.interceptor';
 
 @NgModule({
   declarations: [
@@ -28,7 +28,7 @@ import { Token } from '@angular/compiler';
     ServicoPrestadoFormComponent,
     ServicoPrestadoListarComponent,
     LoginComponent,
-    LayoutComponent,
+    LayoutComponent
     
   ],
   imports: [
@@ -39,10 +39,12 @@ import { Token } from '@angular/compiler';
     HttpClientModule,
   ],
   providers: [
-    ClientesService,
-    ServicosService,
     AuthService,
-  ],
+    {
+    provide: HTTP_INTERCEPTORS,
+    useClass: TokenInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
