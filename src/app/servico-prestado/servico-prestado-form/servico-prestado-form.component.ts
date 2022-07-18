@@ -32,8 +32,6 @@ export class ServicoPrestadoFormComponent implements OnInit {
   }
 
   salvarServico(){
-    console.log(this.servicos);
-    this.servicos.data = "10/02/2021"
     this.servicoService.postSalvarServico(this.servicos)
         .subscribe(
           response => {

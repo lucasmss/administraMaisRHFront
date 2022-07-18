@@ -45,7 +45,6 @@ export class ListarClientesComponent implements OnInit {
    this.service.deletarCliente(this.clienteSelecionado)
    .subscribe(
      response => {
-       console.log('passed');
       this.success = 'Cliente excluido com sucesso!'
       this.ngOnInit();
      },

@@ -15,12 +15,7 @@ export class ClientesService {
 
 
   postSalvarCliente(cliente: Clientes) : Observable<Clientes> {
-    const tokenString = localStorage.getItem('access_token');
-    const token = JSON.parse(tokenString);
-    const headers = {
-      'Authorization' : 'Bearer ' + token.access_token
-    }
-    return this.http.post<Clientes>(`${this.apiURL}`, cliente, {headers});
+    return this.http.post<Clientes>(`${this.apiURL}`, cliente);
   }
 
   postAtualizarCliente(cliente: Clientes) : Observable<any> {
@@ -28,12 +23,7 @@ export class ClientesService {
   }
 
   getListarClientes(): Observable<Clientes[]> {
-    const tokenString = localStorage.getItem('access_token');
-    const token = JSON.parse(tokenString);
-    const headers = {
-      'Authorization' : 'Bearer ' + token.access_token
-    }
-    return this.http.get<Clientes[]>(this.apiURL, { headers });
+    return this.http.get<Clientes[]>(this.apiURL);
   }
 
   getListarCliente(id: number): any {

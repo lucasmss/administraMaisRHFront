@@ -18,6 +18,7 @@ import { AuthService } from './shared/services/auth.service';
 import { ClientesService } from 'shared/services/clientes.service';
 import { ServicosService } from 'shared/services/servicos.service';
 import { TokenInterceptor } from './token.interceptor';
+import { AuthGuard } from './auth.guard';
 
 @NgModule({
   declarations: [

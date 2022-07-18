@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AuthGuard } from './auth.guard';
 import { FormClientesComponent } from './clientes/form-clientes/form-clientes.component';
 import { ListarClientesComponent } from './clientes/listar-clientes/listar-clientes.component';
 import { HomeComponent } from './home/home.component';
@@ -11,15 +12,14 @@ import { ServicoPrestadoListarComponent } from './servico-prestado/servico-prest
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
-  { path:'', component: LayoutComponent, children: [
-  { path: 'home', component: HomeComponent },
-  { path: 'cadastrar', component: FormClientesComponent },
-  { path: 'cadastrar/:id', component: FormClientesComponent },
-  { path: 'cadastrados', component: ListarClientesComponent },
-  { path: 'servico-prestado-form', component: ServicoPrestadoFormComponent },
-  { path: 'servico-prestado-lista', component: ServicoPrestadoListarComponent }
+  { path:'', component: LayoutComponent, canActivate: [AuthGuard], children: [
+    { path: 'home', component: HomeComponent},
+    { path: 'cadastrar', component: FormClientesComponent },
+    { path: 'cadastrar/:id', component: FormClientesComponent },
+    { path: 'cadastrados', component: ListarClientesComponent },
+    { path: 'servico-prestado-form', component: ServicoPrestadoFormComponent },
+    { path: 'servico-prestado-lista', component: ServicoPrestadoListarComponent }
   ]}
-
 ];
 
 @NgModule({
